@@ -325,9 +325,9 @@ int Execute ( DecodedInstr* d, RegVals* rVals) {
                 return 0;
             }
         } else if (d->regs.r.funct == 0) { // sll
-            return (rVals->R_rt << d->regs.r.shamt); // R_rd = R_rt << shamt
+            return ((unsigned int)rVals->R_rt << d->regs.r.shamt); // R_rd = R_rt << shamt
         } else if (d->regs.r.funct == 2) { // srl
-            return (rVals->R_rt >> d->regs.r.shamt); // R-Rd = R_rt >> shamt
+            return ((unsigned int)rVals->R_rt >> d->regs.r.shamt); // R-Rd = R_rt >> shamt
         } else if (d->regs.r.funct == 35) { // subu
             return (rVals->R_rs - rVals->R_rt); // R_rd = R_rs + R_rt
         } 
