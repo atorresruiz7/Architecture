@@ -104,8 +104,8 @@ int replacement(unsigned int index) {
       //unsigned minimum = cache[0].block[index].accessCount; // initialize a minimum count check to 
       unsigned minimum = INT_MAX; // initalize a minimum value to INT MAX to use for comparing counts
       for (int i = 1; i < assoc; i++) { // can't have 0 associativity, so loop through starting at 1
-        if (minimum > cache[i].block[index].accessCount) { // compare by scaling minimum down sequentially based on count
-          minimum = cache[i].block[index].accessCount;
+        if (minimum > cache[index].block[i].accessCount) { // compare by scaling minimum down sequentially based on count
+          minimum = cache[index].block[i].accessCount;
           replace = i; // the index i is where the least recently used block is, return so we know which it is
         }
       } return replace; // return the index
